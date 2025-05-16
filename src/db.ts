@@ -1,18 +1,14 @@
 // db.ts
 import mongoose from "mongoose";
-import dotenv from "dotenv";
 
-dotenv.config();
 
-const MONGO_URI = process.env.MONGO_URI;
 
-if (!MONGO_URI) {
-  throw new Error("MONGO_URI is not defined in .env file");
-}
+
+
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(MONGO_URI);
+    await mongoose.connect("mongodb+srv://Sanjeev:Sanjeev123@cluster0.ybrdh6e.mongodb.net/brainly");
     console.log("MongoDB connected");
   } catch (error) {
     console.error("MongoDB connection error:", error);
