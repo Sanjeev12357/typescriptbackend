@@ -33,14 +33,10 @@ var __importStar = (this && this.__importStar) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ContentModel = void 0;
+exports.LinkModel = void 0;
 const mongoose_1 = __importStar(require("mongoose"));
-const ContentSchema = new mongoose_1.Schema({
-    title: String,
-    link: String,
-    type: String,
-    tags: [{ type: mongoose_1.default.Types.ObjectId, ref: "Tag" }],
-    userId: { type: mongoose_1.default.Types.ObjectId, ref: "User", required: true },
-    shareLink: { type: String, unique: true, sparse: true }
+const LinkSchema = new mongoose_1.Schema({
+    hash: String,
+    userId: { type: mongoose_1.default.Types.ObjectId, ref: "User", required: true, unique: true },
 });
-exports.ContentModel = (0, mongoose_1.model)("Content", ContentSchema);
+exports.LinkModel = (0, mongoose_1.model)("Link", LinkSchema);
