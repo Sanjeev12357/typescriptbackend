@@ -207,7 +207,7 @@ app.post("/api/v1/brain/share", userMiddleware, async (req: Request, res: Respon
 
     res.json({
       message:'Shareable link created',
-      link:"/share/"+hash
+      link:"/"+hash
     })
   }else{
     await LinkModel.deleteOne({
